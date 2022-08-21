@@ -1,3 +1,5 @@
+var question1 = 
+
 var questions = [{
     question: "What is HTML",
     options: ["Hyper Text Markup Language", "Hyper Text Makeup Language", "Hyper Test Markup Language", "Hypo Test Markup Language"],
@@ -23,6 +25,13 @@ var questions = [{
 {
     
 }] 
+
+
+function Question(title, options, answer){
+    this.title = title
+    this.options = options
+    this.answer = answer
+}
 
 var container = document.getElementById("container")
 
