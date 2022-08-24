@@ -1,5 +1,5 @@
 // Creation of instances so that a single object could be used multiple times for storing same keys with different values.
-let questionOne = new Question('An HTML document can contain" was written by ____', ["Attributes", "Tags","Raw text", "All of these"], "All of these")
+let questionOne = new Question('An HTML document can contain ____', ["Attributes", "Tags","Raw text", "All of these"], "All of these")
 let questionTwo = new Question("A page designed in HTML is called ____", ["Application","Cover page", "Web Page", "Front-end"], "Web Page") 
 let questionThree = new Question("An HTML document is saved with the ____ extension.", [".htl",".html", ".hml", ".htnl"], ".html")
 let questionFour = new Question("The HTML document contains a root tag called ____", ["HEAD", "Title", "Body", "HTML"], "HTML")
@@ -58,17 +58,38 @@ function startQuiz() {
 
         // In the last appending the input element in the container div
         container.appendChild(spanElement);
+        optionElement.addEventListener("click", function(e){
+            console.log(e);
+            nextBtn.setAttribute("onclick", "nextQuestion()");
+            
+            
+        })
+     
     }
+
 
     const nextBtn = document.createElement("button");
     nextBtn.innerText = "Next"
-    nextBtn.setAttribute("onclick", "nextQuestion()");
-    container.appendChild(nextBtn)
+    container.appendChild(nextBtn);
+ 
+    const previousBtn = document.createElement("button");
+    previousBtn.innerText = "Previous";
+    previousBtn.setAttribute("onclick", "previousQuestion()")
+    container.appendChild(previousBtn)
 
+    
 }
+
 
 function nextQuestion() {
     currentQuestion++;
+    container.innerHTML = '';
+    startQuiz();
+}
+
+
+function previousQuestion(){
+    currentQuestion = currentQuestion -1;
     container.innerHTML = '';
     startQuiz();
 }
